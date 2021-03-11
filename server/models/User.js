@@ -3,7 +3,7 @@ const bcrypt = require('bcrypt');
 const saltRounds = 10;
 const jwt = require('jsonwebtoken');
 const moment = require('moment');
-
+//모델은 스키마를 선언해둔것
 const userSchema = mongoose.Schema({
     name: {
         type: String,

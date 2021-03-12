@@ -19,6 +19,20 @@ function LeftMenu(props) {
                     </Menu.Item>
                 </MenuItemGroup>
             </SubMenu>
+            <SubMenu href="review/list" title={<span>상품후기</span>}></SubMenu>
+            <SubMenu title={<span>Tea story</span>}>
+                <MenuItemGroup title="차 이야기">
+                    <Menu.Item key="setting:1">
+                        <a href="#">Since 1990…</a>
+                    </Menu.Item>
+                    <Menu.Item key="setting:2">
+                        <a href="#">지리산 차밭 이야기</a>
+                    </Menu.Item>
+                    <Menu.Item key="setting:2">
+                        <a href="#">명인의손길</a>
+                    </Menu.Item>
+                </MenuItemGroup>
+            </SubMenu>
         </Menu>
     );
 }

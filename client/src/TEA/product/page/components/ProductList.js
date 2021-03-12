@@ -12,8 +12,11 @@ function ProductList({ productList }) {
         <div style={{ width: '75%', margin: '3rem auto' }}>
             {/* Page Title */}
             <div style={{ textAlign: 'center' }}>
-                <Title level={2}>
-                    관아수제차 목록 &nbsp;
+                <Title
+                    level={2}
+                    style={{ color: 'black', fontFamily: 'Segoe UI Black', fontSize: 30 }}
+                >
+                    WEEKLY BEST ITEMS &nbsp;
                     {/* <Icon type="rocket" /> */}
                 </Title>
                 <br />

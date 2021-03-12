@@ -14,7 +14,7 @@ function Footer() {
             }}
         >
             <p>
-                Happy Coding <SmileOutlined />
+                Happy shopping <SmileOutlined />
             </p>
         </div>
     );

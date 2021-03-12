@@ -38,6 +38,11 @@ function RightMenu(props) {
     } else {
         return (
             <Menu mode={props.mode}>
+                <Menu.Item key="cart">
+                    <a href="/product/cart" className="head-example" style={{ color: '#667777' }}>
+                        <ShoppingCartOutlined style={{ fontSize: '25px' }} />
+                    </a>
+                </Menu.Item>
                 <Menu.Item key="logout">
                     <a onClick={logoutHandler}>Logout</a>
                 </Menu.Item>

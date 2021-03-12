@@ -13,7 +13,11 @@ function ProductListContainer() {
         dispatch(requestProductList());
     }, [dispatch]);
 
-    return <ProductList productList={productList} />;
+    return (
+        <>
+            <ProductList productList={productList} />
+        </>
+    );
 }
 
 export default ProductListContainer;

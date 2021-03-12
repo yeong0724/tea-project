@@ -9,6 +9,8 @@ import NavBar from './TEA/common/layout/NavBar/NavBar';
 import Footer from './TEA/common/layout/Footer/Footer';
 import AddProductPage from './TEA/product/page/pages/AddProductPage';
 import ProductListPage from './TEA/product/page/pages/ProductListPage';
+import CartPage from './TEA/product/page/pages/CartPage';
+import ReviewManyPage from './TEA/product/page/pages/review/ReviewManyPage';
 
 //null   Anyone Can go inside
 //true   only logged in user can go inside
@@ -25,6 +27,8 @@ function App() {
                     <Route exact path="/register" component={Auth(RegisterPage, false)} />
                     <Route exact path="/product/add" component={Auth(AddProductPage, true)} />
                     <Route exact path="/product/list" component={Auth(ProductListPage, true)} />
+                    <Route exact path="/product/cart" component={Auth(CartPage, true)} />
+                    <Route exact path="/product/cart" component={Auth(ReviewManyPage, true)} />
                 </Switch>
             </div>
             <Footer />

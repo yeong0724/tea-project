@@ -30,7 +30,14 @@ function NavBar() {
                 <Button className="menu__mobile-button" type="primary" onClick={showDrawer}>
                     <AlignRightOutlined />
                 </Button>
-                <Drawer title="Basic Drawer" placement="right" className="menu_drawer" closable={false} onClose={onClose} visible={visible}>
+                <Drawer
+                    title="Basic Drawer"
+                    placement="right"
+                    className="menu_drawer"
+                    closable={false}
+                    onClose={onClose}
+                    visible={visible}
+                >
                     <LeftMenu mode="inline" />
                     <RightMenu mode="inline" />
                 </Drawer>

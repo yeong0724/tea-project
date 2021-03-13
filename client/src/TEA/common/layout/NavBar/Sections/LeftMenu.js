@@ -19,7 +19,13 @@ function LeftMenu(props) {
                     </Menu.Item>
                 </MenuItemGroup>
             </SubMenu>
-            <SubMenu href="review/list" title={<span>상품후기</span>}></SubMenu>
+            <SubMenu
+                title={
+                    <span>
+                        <a href="/product/reviewmany"> 상품후기</a>
+                    </span>
+                }
+            ></SubMenu>
             <SubMenu title={<span>Tea story</span>}>
                 <MenuItemGroup title="차 이야기">
                     <Menu.Item key="setting:1">

@@ -1,13 +1,17 @@
 import React from 'react';
-import HeaderContainer from '../containers/common/HeaderContainer';
+import Responsive from '../../../../common/layout/Responsive';
+import EditorContainer from '../../containers/review/EditorContainer';
+import TagBoxContainer from '../../containers/review/TagBoxContainer';
+import WriteActionButtonsContainer from '../../containers/review/WriteActionButtonsContainer';
 
-const PostListPage = () => {
-  return (
-    <>
-      <HeaderContainer />
-      <div>안녕하세요.</div>
-    </>
-  );
+const ReviewManyPage = () => {
+    return (
+        <Responsive>
+            <EditorContainer />
+            <TagBoxContainer />
+            <WriteActionButtonsContainer />
+        </Responsive>
+    );
 };
 
-export default PostListPage;
+export default ReviewManyPage;

@@ -45,7 +45,7 @@ router.post('/imageDelete', (req, res) => {
 router.post('/register', (req, res) => {
     //register를 프론트엔드 api에서 쏴준걸 req로 req.body로 write, name, price....등등 받는다
     //write: req.body.writer
-    const product = new Product(req.body); //프로덕트가 body를 받아와서 지가 알아서 매치를 시킨다 model에 선언해둔 칼럼에다가 알아서 매치함 가격은 얼마 이름은 뭐 알아서 매치해서 매치한 객체를 product로 만든다 이 product를 save 하면 몽고db에 저자이된다
+    const product = new Product(req.body); //프로덕트가 body를 받아와서 지가 알아서 매치를 시킨다 model에 선언해둔 칼럼에다가 알아서 매치함 가격은 얼마 이름은 뭐 알아서 매치해서 매치한 객체를 product로 만든다 이 product를 save 하면 몽고db에 저장이된다
     product.save((err) => {
         //post로 저장할땐 이런방식을 써야한다
         if (err) {

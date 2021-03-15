@@ -6,18 +6,21 @@ import { writePost } from '../../../action/review/ReviewAction';
 
 const WriteActionButtonsContainer = ({ history }) => {
     const dispatch = useDispatch();
-    const { title, body, tags, post, postError } = useSelector(({ review }) => ({
+    const { title, body, tags, post, postError, userData } = useSelector(({ review, user }) => ({
         title: review.title,
         body: review.body,
         tags: review.tags,
         post: review.post,
         postError: review.postError,
+        userData: user.userData,
     }));
 
     // 포스트 등록
     const onPublish = () => {
+        const userId = userData._id;
         dispatch(
             writePost({
+                userId,
                 title,
                 body,
                 tags,
@@ -34,7 +37,7 @@ const WriteActionButtonsContainer = ({ history }) => {
     useEffect(() => {
         if (post) {
             const { _id, user } = post;
-            history.push(`/@${user.username}/${_id}`);
+            history.push('/review/postlistpage');
         }
         if (postError) {
             console.log(postError);

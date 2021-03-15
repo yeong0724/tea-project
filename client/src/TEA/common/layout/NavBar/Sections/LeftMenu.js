@@ -22,7 +22,7 @@ function LeftMenu(props) {
             <SubMenu
                 title={
                     <span>
-                        <a href="/product/reviewmany"> 상품후기</a>
+                        <a href="/review/postlistpage"> 상품후기</a>
                     </span>
                 }
             ></SubMenu>

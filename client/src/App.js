@@ -12,6 +12,7 @@ import ProductListPage from './TEA/product/page/pages/ProductListPage';
 import CartPage from './TEA/product/page/pages/CartPage';
 import ReviewManyPage from './TEA/product/page/pages/review/ReviewManyPage';
 import PostListPage from './TEA/product/page/pages/review/PostListPage';
+import PostPage from './TEA/product/page/pages/review/PostPage';
 
 //null   Anyone Can go inside
 //true   only logged in user can go inside
@@ -31,6 +32,7 @@ function App() {
                     <Route exact path="/product/cart" component={Auth(CartPage, true)} />
                     <Route exact path="/review/postlistpage" component={Auth(PostListPage, true)} />
                     <Route exact path="/review/reviewmany" component={Auth(ReviewManyPage, true)} />
+                    <Route exact path="/review/postpage" component={Auth(PostPage, true)} />
                 </Switch>
             </div>
             <Footer />

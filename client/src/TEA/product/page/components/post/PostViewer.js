@@ -46,8 +46,9 @@ const PostViewer = ({ post, error, loading }) => {
         <PostViewerBlock>
             <PostHead>
                 <h1>{title}</h1>
-                <SubInfo username={user.username} publishedDate={publishedDate} hasMarginTop />
-                <Tags tags={tags} />
+                {/* username={user.username}  */}
+                <SubInfo publishedDate={publishedDate} hasMarginTop />
+                {/* <Tags tags={tags} /> */}
             </PostHead>
             <PostContent dangerouslySetInnerHTML={{ __html: body }} />
         </PostViewerBlock>

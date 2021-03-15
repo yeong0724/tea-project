@@ -56,7 +56,7 @@ router.post('/register', (req, res) => {
 });
 
 router.post('/list', (req, res) => {
-    Product.find() //조회 - find하면 product객체의 ㅌㅔ이블에서 find함
+    Product.find() //조회 - find하면 product객체의 테이블에서 find함
         .populate('writer') //ref 로 write걸었음 모델폴더에서 ref: 'User'걸었으니까 user테이블 참조해서 objectId에해당하는 user데이터 들고와라 writer가 칼럼명인데 몽고디비가 writer에 걸려있으니까 user테이블에서 가져와준다
         .exec((err, productList) => {
             //find가 에러든 성공하든 여기걸리는데 에러가있으면 err값이있고 성공했다면 productList 프로덕트 정보들을 다 들고 온다

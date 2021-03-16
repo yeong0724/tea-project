@@ -10,11 +10,16 @@ const PostViewerContainer = ({ match }) => {
     const { postId } = match.params;
     console.log('포스트아디@@@@@@@@@@@@', postId);
     const dispatch = useDispatch();
-    const { post, error, loading } = useSelector(({ post, loading }) => ({
-        post: post.post,
-        error: post.error,
-        loading: loading['post/READ_POST'],
-    }));
+    const { post, error, loading } = useSelector(({ post, loading }) => {
+        console.log('useSelector: post');
+        console.log(post);
+        console.log(post.post);
+        return {
+            post: post.post,
+            error: post.error,
+            loading: loading['post/READ_POST'],
+        };
+    });
     console.log('뽀스트!!!!!!!!!!!!!', loading);
     useEffect(() => {
         dispatch(readPost(postId));

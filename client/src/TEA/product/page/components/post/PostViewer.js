@@ -35,22 +35,21 @@ const PostViewer = ({ post, error, loading }) => {
         }
         return <PostViewerBlock>오류 발생!</PostViewerBlock>;
     }
-
+    console.log('폿스트야 여까지왓냐?', post);
     // 로딩중이거나, 아직 포스트 데이터가 없을 시
     if (loading || !post) {
         return null;
     }
 
-    const { title, body, user, publishedDate, tags } = post;
     return (
         <PostViewerBlock>
             <PostHead>
-                <h1>{title}</h1>
+                <h1>{post.title}</h1>
                 {/* username={user.username}  */}
-                <SubInfo publishedDate={publishedDate} hasMarginTop />
+                <SubInfo publishedDate={post.publishedDate} hasMarginTop />
                 {/* <Tags tags={tags} /> */}
             </PostHead>
-            <PostContent dangerouslySetInnerHTML={{ __html: body }} />
+            <PostContent dangerouslySetInnerHTML={{ __html: post.body }} />
         </PostViewerBlock>
     );
 };

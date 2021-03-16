@@ -62,7 +62,9 @@ const PostItem = ({ posts }) => {
                         <td></td>
                         <td>
                             <h2>
-                                <Link to={`/@${post.userId.name}/${post._id}`}>{post.title}</Link>
+                                <Link to={`/review/postpage/@${post.userId.name}/${post._id}`}>
+                                    {post.title}
+                                </Link>
                             </h2>
                         </td>
                         <td>

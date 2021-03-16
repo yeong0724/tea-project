@@ -14,7 +14,8 @@ export default function createRequestSaga(type, request) {
             const response = yield call(request, action.payload);
 
             console.log('createRequestSaga');
-            console.log(response);
+
+            console.log('응답하라2021', response);
             yield put({
                 type: SUCCESS,
                 payload: response.data,
@@ -26,6 +27,7 @@ export default function createRequestSaga(type, request) {
                 payload: e,
                 error: true,
             });
+            console.log('에러냐?', e);
         }
         yield put(finishLoading(type));
     };

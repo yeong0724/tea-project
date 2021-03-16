@@ -52,16 +52,16 @@ router.get('/list', (req, res) => {
 
 // /api/posts/list/:id
 router.get('/list/:id', (req, res) => {
-    console.log('쿼리', req.query);
-    Post.findOne({ title: req.query })
+    console.log('쿼리', { _id: req.params.id });
+    Post.findOne({ _id: req.params.id })
         .populate('userId')
-        .exec((err, postlist) => {
+        .exec((err, post) => {
             if (err) {
                 console.log('여기까지왓니?');
                 return res.status(400).json({ success: false, err }); //400에러에대한코드  .해줘야 에러발생했을때 console에 뜸
             }
-            res.status(200).json({ success: true, postlist });
-            console.log('성공여기까지왓니?dddd', postlist);
+            res.status(200).json({ success: true, post });
+            console.log('성공여기까지왓니?dd^_^dd', post);
         });
 });
 

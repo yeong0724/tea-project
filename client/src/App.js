@@ -32,7 +32,11 @@ function App() {
                     <Route exact path="/product/cart" component={Auth(CartPage, true)} />
                     <Route exact path="/review/postlistpage" component={Auth(PostListPage, true)} />
                     <Route exact path="/review/reviewmany" component={Auth(ReviewManyPage, true)} />
-                    <Route exact path="/review/postpage" component={Auth(PostPage, true)} />
+                    <Route
+                        exact
+                        path="/review/postpage/@:username/:postId"
+                        component={Auth(PostPage, true)}
+                    />
                 </Switch>
             </div>
             <Footer />

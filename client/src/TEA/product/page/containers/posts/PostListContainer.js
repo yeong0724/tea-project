@@ -14,6 +14,7 @@ const PostListContainer = ({ location, match }) => {
         user: user.user,
     }));
     useEffect(() => {
+        console.log('포스트리스트는 불러온다고??', user);
         const { username } = match.params;
         const { tag, page } = qs.parse(location.search, {
             ignoreQueryPrefix: true,

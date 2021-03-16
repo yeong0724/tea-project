@@ -5,6 +5,7 @@ import { readPost, unloadPost } from '../../../action/post/PostAction';
 import PostViewer from '../../components/post/PostViewer';
 
 const PostViewerContainer = ({ match }) => {
+    console.log('match', match);
     // 처음 마운트될 때 포스트 읽기 API 요청
     const { postId } = match.params;
     const dispatch = useDispatch();

@@ -37,7 +37,7 @@ router.post('/write', (req, res) => {
     });
 });
 
-router.post('/list', (req, res) => {
+router.get('/list', (req, res) => {
     Post.find()
         .populate('userId')
         .exec((err, postlist) => {
@@ -46,13 +46,14 @@ router.post('/list', (req, res) => {
             }
             console.log('포스트불러d왔어어떻게?', postlist);
             res.status(200).json({ success: true, postlist });
-            console.log('포스트불러왓어글쎄어떻게?', postlist);
+            console.log('포스트불러왓어@@@@@@@@@@@@@글쎄어떻게?', postlist);
         });
 });
 
 // /api/posts/list/:id
 router.get('/list/:id', (req, res) => {
-    Post.findOne({ title: 'ddddsdsdsdsd' })
+    console.log('쿼리', req.query);
+    Post.findOne({ title: req.query })
         .populate('userId')
         .exec((err, postlist) => {
             if (err) {

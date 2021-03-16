@@ -62,11 +62,11 @@ const PostItem = ({ posts }) => {
                         <td></td>
                         <td>
                             <h2>
-                                <Link to={'/review/postpage'}>{post.title}</Link>
+                                <Link to={`/@${post.userId.name}/${post._id}`}>{post.title}</Link>
                             </h2>
                         </td>
                         <td>
-                            <div> {post.userId.name} </div>
+                            <SubInfo username={post.userId.name} />
                         </td>
                         <td>
                             <SubInfo publishedDate={post.createdAt} />
@@ -86,19 +86,24 @@ const PostList = ({ posts, loading, error, showWriteButton }) => {
 
     return (
         <PostListBlock>
-            <WritePostButtonWrapper>
-                {/* {showWriteButton && ( */}
-                <Button cyan to="/review/reviewmany">
-                    새 글 작성하기
-                </Button>
-                {/* )} */}
-            </WritePostButtonWrapper>
+            {/* <WritePostButtonWrapper>
+                {showWriteButton && (
+                    <Button cyan to="/review/reviewmany">
+                새 글 작성하기
+            </Button>
+                )}
+            </WritePostButtonWrapper> */}
             {/* 로딩 중 아니고, 포스트 배열이 존재할 때만 보여줌 */}
+
             {!loading && posts && (
                 <div>
+                    <h1 style={{ color: 'pink', fontFamily: 'Gabriola', fontSize: 60 }}> review</h1>
                     <PostItem posts={posts.postlist} />
                 </div>
             )}
+            <Button cyan to="/review/reviewmany">
+                새 글 작성하기
+            </Button>
         </PostListBlock>
     );
 };

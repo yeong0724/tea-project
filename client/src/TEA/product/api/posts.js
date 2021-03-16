@@ -6,7 +6,15 @@ export const writePost = ({ title, body, tags, userId }) =>
 
 export const readPost = (id) => client.get(`/api/posts/list/${id}`);
 
-export const listPosts = () => client.post(`/api/posts/list  `);
+export const listPosts = ({ page, username, tag }) => {
+    const queryString = qs.stringify({
+        page,
+        username,
+        tag,
+    });
+    console.log('쿼리스트링222', queryString);
+    return client.get(`/api/posts/list?${queryString}`);
+};
 
 export const updatePost = ({ id, title, body, tags }) =>
     client.patch(`/api/posts/${id}`, {

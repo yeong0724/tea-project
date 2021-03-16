@@ -30,6 +30,7 @@ const TagForm = styled.form`
     input {
         padding: 0.5rem;
         flex: 1;
+        min-width: 0;
     }
     button {
         cursor: pointer;

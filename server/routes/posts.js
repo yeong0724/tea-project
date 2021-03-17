@@ -80,5 +80,69 @@ router.delete('/:id', (req, res) => {
             console.log('성공!여기까지왓니?dd^_^dd');
         });
 });
+// //수정하기
+
+// router.put('/:id', function (req, res, next) {
+//     const post_id = req.params.id;
+//     const { title, body, tags } = req.body;
+
+//     try {
+//         var post = Post.findById(post_id);
+//         if (!post) return res.status(404).json({ message: 'post not found' });
+//         post.title = title;
+//         post.body = body;
+//         post.tags = tags;
+//         var output = post.save();
+//         console.log('Update 완료');
+//         res.status(200).json({
+//             message: 'Update success',
+//             data: {
+//                 post: output,
+//             },
+//         });
+//     } catch (err) {
+//         res.status(500).json({
+//             message: err,
+//         });
+//     }
+
+// });
+
+//수정하기 2
+// router.post('/update/:id', function (req, res) {
+//     Post.findById(req.params.id, function (err, post) {
+//         console.log('수정날라오는거니?????...ㅎㅎ', req.params.id);
+//         if (err) return res.status(500).json({ error: 'database failure' });
+//         if (!post) return res.status(404).json({ error: 'post not found' });
+
+//         if (req.body.title) post.title = req.body.title;
+//         if (req.body.body) post.body = req.body.body;
+//         if (req.body.tags) post.tags = req.body.tags;
+
+//         post.save(function (err) {
+//             if (err) res.status(500).json({ error: 'failed to update' });
+//             res.json({ message: 'post updated' });
+//         });
+//     });
+// });
+
+//수정하기 33
+router.post('/update/:id', function (req, res) {
+    Post.findOneAndUpdate(
+        { _id: req.params.id, comments: { $elemMatch: { _id: req.params.id } } },
+        { $set: { 'comments.$.memo': modifiedtext } },
+        function (err, results) {
+            if (err) throw err;
+            console.log(results);
+            if (results) {
+                Post.find({ _id: req.params.id }, function (err, reply) {
+                    if (err) throw err;
+                    console.log('reply after modifying', reply[0].comments);
+                    res.send({ reply: reply[0].comments });
+                });
+            }
+        }
+    );
+});
 
 module.exports = router;

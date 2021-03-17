@@ -1,3 +1,4 @@
+import { Button } from 'antd';
 import React from 'react';
 import { Table } from 'react-bootstrap';
 
@@ -18,19 +19,28 @@ function Cart(props) {
                         <td>1</td>
                         <td>우전</td>
                         <td>3</td>
-                        <td>@mdo</td>
+                        <td>
+                            <Button>+</Button>
+                            <Button>-</Button>
+                        </td>
                     </tr>
                     <tr>
                         <td>2</td>
                         <td>세작</td>
                         <td>2</td>
-                        <td>@hi</td>
+                        <td>
+                            <Button>+</Button>
+                            <Button>-</Button>
+                        </td>
                     </tr>
                     <tr>
                         <td>2</td>
                         <td>구증구포</td>
                         <td>2</td>
-                        <td>@hello</td>
+                        <td>
+                            <Button>+</Button>
+                            <Button>-</Button>
+                        </td>
                     </tr>
                 </tbody>
             </Table>

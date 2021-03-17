@@ -18,7 +18,7 @@ export const listPosts = ({ page, username, tag }) => {
 };
 
 export const updatePost = ({ id, title, body, tags }) =>
-    client.patch(`/api/posts/${id}`, {
+    client.post(`/api/posts/update/${id}`, {
         title,
         body,
         tags,

@@ -7,3 +7,7 @@ export const [WRITE_POST, WRITE_POST_SUCCESS, WRITE_POST_FAILURE] = createReques
 ); // 포스트 작성
 
 export const SET_ORIGINAL_POST = 'review/SET_ORIGINAL_POST';
+
+export const [UPDATE_POST, UPDATE_POST_SUCCESS, UPDATE_POST_FAILURE] = createRequestActionTypes(
+    'review/UPDATE_POST'
+); // 포스트 수정

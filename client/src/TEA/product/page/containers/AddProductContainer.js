@@ -25,7 +25,7 @@ function AddProductContainer({ history }) {
 
     const submitHandler = (e) => {
         e.preventDefault();
-        const writer = user.userData._id;
+        const writer = user.user._id;
         const { name, description, price, images } = product;
         // 유효성 검사
         if ([name, description, price, images].includes('')) {

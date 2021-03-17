@@ -7,6 +7,8 @@ import 밭 from './image/밭.jpg';
 import 다도 from './image/다도.jpg';
 import 잼 from './image/잼.png';
 import 차실 from './image/차실.png';
+import 다도1 from './image/다도1.jpg';
+
 import ProductListContainer from '../../../product/page/containers/ProductListContainer';
 
 function LandingPage() {
@@ -24,6 +26,20 @@ function LandingPage() {
                     <Carousel.Caption>
                         <h1 style={{ color: 'beige', fontFamily: '문체부 쓰기 정체' }}>봄맞이</h1>
                         <h1 style={{ color: 'white', fontFamily: '바탕체' }}>햇 차 나왔습니다</h1>
+                    </Carousel.Caption>
+                </Carousel.Item>
+                <Carousel.Item>
+                    <img
+                        className="d-block w-100"
+                        src={다도1}
+                        alt="First slide"
+                        style={{ height: 550, padding: '0 250px' }}
+                    />
+                    <Carousel.Caption>
+                        <h1 style={{ color: 'beige', fontFamily: '문체부 쓰기 정체' }}>
+                            차 한 잔의{' '}
+                        </h1>
+                        <h1 style={{ color: 'white', fontFamily: '문체부 쓰기 정체' }}>여유, 쉼</h1>
                     </Carousel.Caption>
                 </Carousel.Item>
                 <Carousel.Item>

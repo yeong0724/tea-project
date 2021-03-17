@@ -6,6 +6,8 @@ import {
     WRITE_POST_FAILURE,
     WRITE_POST_SUCCESS,
     SET_ORIGINAL_POST,
+    UPDATE_POST_SUCCESS,
+    UPDATE_POST_FAILURE,
 } from '../action/review/ReviewActionType';
 
 const initialState = {
@@ -47,6 +49,16 @@ const review = handleActions(
             body: post.body,
             tags: post.tags,
             originalPostId: post._id,
+        }),
+
+        //수정하기
+        [UPDATE_POST_SUCCESS]: (state, { payload: post }) => ({
+            ...state,
+            post,
+        }),
+        [UPDATE_POST_FAILURE]: (state, { payload: postError }) => ({
+            ...state,
+            postError,
         }),
     },
     initialState

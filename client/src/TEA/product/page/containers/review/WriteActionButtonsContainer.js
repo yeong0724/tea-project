@@ -2,26 +2,33 @@ import React, { useEffect } from 'react';
 import WriteActionButtons from '../../components/review/WriteActionButtons';
 import { useSelector, useDispatch } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import { writePost } from '../../../action/review/ReviewAction';
+import { writePost, updatePost } from '../../../action/review/ReviewAction';
 
 const WriteActionButtonsContainer = ({ history }) => {
     const dispatch = useDispatch();
-    const { title, body, tags, post, postError, userData } = useSelector(({ review, user }) => {
-        console.log('유저어어', user);
-        return {
-            title: review.title,
-            body: review.body,
-            tags: review.tags,
-            post: review.post,
-            postError: review.postError,
-            userData: user.user,
-        };
-    });
+    const { title, body, tags, post, postError, userData, originalPostId } = useSelector(
+        ({ review, user }) => {
+            console.log('유저어어', user);
+            return {
+                title: review.title,
+                body: review.body,
+                tags: review.tags,
+                post: review.post,
+                postError: review.postError,
+                userData: user.user,
+                originalPostId: review.originalPostId,
+            };
+        }
+    );
 
     console.log('유저데이타', userData);
 
     // 포스트 등록
     const onPublish = () => {
+        if (originalPostId) {
+            dispatch(updatePost({ title, body, tags, id: originalPostId }));
+            return;
+        }
         const userId = userData._id;
         dispatch(
             writePost({
@@ -48,7 +55,9 @@ const WriteActionButtonsContainer = ({ history }) => {
             console.log(postError);
         }
     }, [history, post, postError]);
-    return <WriteActionButtons onPublish={onPublish} onCancel={onCancel} />;
+    return (
+        <WriteActionButtons onPublish={onPublish} onCancel={onCancel} isEdit={!!originalPostId} />
+    );
 };
 
 export default withRouter(WriteActionButtonsContainer);

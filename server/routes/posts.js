@@ -65,22 +65,20 @@ router.get('/list/:id', (req, res) => {
         });
 });
 
-//     if (!ObjectId.isValid(id)) {
-//       ctx.status = 400; // Bad Request
-//       return;
-//     }
-//     try {
-//       const post = await Post.findById(id);
-//       // 포스트가 존재하지 않을 때
-//       if (!post) {
-//         ctx.status = 404; // Not Found
-//         return;
-//       }
-//       ctx.state.post = post;
-//       return next();
-//     } catch (e) {
-//       ctx.throw(500, e);
-//     }
-//   };
+//삭제하자~~~~
+
+router.delete('/:id', (req, res) => {
+    console.log('삭제오호 여기까지온거가??ㅋㅋ', { _id: req.params.id });
+    Post.deleteOne({ _id: req.params.id })
+        .populate('userId')
+        .exec((err) => {
+            if (err) {
+                console.log('여기까지왓니?에러다 ㅋ');
+                return res.status(404).json({ message: 'post not found', err }); //400에러에대한코드  .해줘야 에러발생했을때 console에 뜸
+            }
+            res.status(200).json({ success: true });
+            console.log('성공!여기까지왓니?dd^_^dd');
+        });
+});
 
 module.exports = router;

@@ -6,14 +6,19 @@ import { writePost } from '../../../action/review/ReviewAction';
 
 const WriteActionButtonsContainer = ({ history }) => {
     const dispatch = useDispatch();
-    const { title, body, tags, post, postError, userData } = useSelector(({ review, user }) => ({
-        title: review.title,
-        body: review.body,
-        tags: review.tags,
-        post: review.post,
-        postError: review.postError,
-        userData: user.userData,
-    }));
+    const { title, body, tags, post, postError, userData } = useSelector(({ review, user }) => {
+        console.log('유저어어', user);
+        return {
+            title: review.title,
+            body: review.body,
+            tags: review.tags,
+            post: review.post,
+            postError: review.postError,
+            userData: user.user,
+        };
+    });
+
+    console.log('유저데이타', userData);
 
     // 포스트 등록
     const onPublish = () => {

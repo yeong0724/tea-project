@@ -5,6 +5,7 @@ import {
     WRITE_POST,
     WRITE_POST_FAILURE,
     WRITE_POST_SUCCESS,
+    SET_ORIGINAL_POST,
 } from '../action/review/ReviewActionType';
 
 const initialState = {
@@ -13,6 +14,7 @@ const initialState = {
     tags: [],
     post: null,
     postError: null,
+    originalPostId: null,
 };
 
 const review = handleActions(
@@ -37,6 +39,14 @@ const review = handleActions(
         [WRITE_POST_FAILURE]: (state, { payload: postError }) => ({
             ...state,
             postError,
+        }),
+        //수정버튼클릭시 글쓰기페이지로 이동하기
+        [SET_ORIGINAL_POST]: (state, { payload: post }) => ({
+            ...state,
+            title: post.title,
+            body: post.body,
+            tags: post.tags,
+            originalPostId: post._id,
         }),
     },
     initialState

@@ -36,3 +36,7 @@ input.error {
     height: 5px;
     margin-top: -12px;
 }
+.background {
+    background-image: url(../src/TEA/common/layout/LandingPage/image/구름.png);
+    background-size: auto;
+}

@@ -39,7 +39,8 @@ const PostViewerContainer = ({ match, history }) => {
     }, [dispatch, postId]);
 
     const onEdit = () => {
-        dispatch(setOriginalPost(post));
+        console.log('셋오리지날', post);
+        dispatch(setOriginalPost(post.post));
         history.push('/review/reviewmany');
     };
 

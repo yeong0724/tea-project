@@ -25,6 +25,7 @@ const WriteActionButtonsContainer = ({ history }) => {
 
     // 포스트 등록
     const onPublish = () => {
+        console.log('오리지날아디', originalPostId);
         if (originalPostId) {
             dispatch(updatePost({ title, body, tags, id: originalPostId }));
             return;

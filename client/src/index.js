@@ -15,6 +15,7 @@ import { createStore, applyMiddleware } from 'redux';
 import promiseMiddleware from 'redux-promise';
 import ReduxThunk from 'redux-thunk';
 import rootSaga from './TEA/common/root/RootSaga';
+import { HelmetProvider } from 'react-helmet-async';
 
 const sagaMiddleware = createSagaMiddleware();
 const createStoreWithMiddleware = applyMiddleware(
@@ -31,7 +32,9 @@ sagaMiddleware.run(rootSaga);
 ReactDOM.render(
     <Provider store={store}>
         <BrowserRouter>
-            <App />
+            <HelmetProvider>
+                <App />
+            </HelmetProvider>
         </BrowserRouter>
     </Provider>,
     document.getElementById('root')

@@ -28,20 +28,7 @@ function LandingPage() {
                         <h1 style={{ color: 'white', fontFamily: '바탕체' }}>햇 차 나왔습니다</h1>
                     </Carousel.Caption>
                 </Carousel.Item>
-                <Carousel.Item>
-                    <img
-                        className="d-block w-100"
-                        src={다도1}
-                        alt="First slide"
-                        style={{ height: 550, padding: '0 250px' }}
-                    />
-                    <Carousel.Caption>
-                        <h1 style={{ color: 'beige', fontFamily: '문체부 쓰기 정체' }}>
-                            차 한 잔의{' '}
-                        </h1>
-                        <h1 style={{ color: 'white', fontFamily: '문체부 쓰기 정체' }}>여유, 쉼</h1>
-                    </Carousel.Caption>
-                </Carousel.Item>
+
                 <Carousel.Item>
                     <img
                         className="d-block w-100"
@@ -64,7 +51,7 @@ function LandingPage() {
                         className="d-block w-100  "
                         src={관아}
                         alt="Third slide"
-                        style={{ height: 550, padding: '0 150px' }}
+                        style={{ height: 550, padding: '0 250px' }}
                     />
 
                     <Carousel.Caption>
@@ -72,6 +59,20 @@ function LandingPage() {
                         <h4 style={{ color: 'white', fontFamily: 'Bradley Hand ITC' }}>
                             Thank you for come to here!💕
                         </h4>
+                    </Carousel.Caption>
+                </Carousel.Item>
+                <Carousel.Item>
+                    <img
+                        className="d-block w-100"
+                        src={다도1}
+                        alt="First slide"
+                        style={{ height: 550, padding: '0 250px' }}
+                    />
+                    <Carousel.Caption>
+                        <h1 style={{ color: 'beige', fontFamily: '문체부 쓰기 정체' }}>
+                            차 한 잔의{' '}
+                        </h1>
+                        <h1 style={{ color: 'white', fontFamily: '문체부 쓰기 정체' }}>여유, 쉼</h1>
                     </Carousel.Caption>
                 </Carousel.Item>
                 <Carousel.Item>

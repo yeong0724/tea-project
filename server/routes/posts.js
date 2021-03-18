@@ -82,7 +82,7 @@ router.delete('/:id', (req, res) => {
 });
 // //수정하기
 
-// router.put('/:id', function (req, res, next) {
+// router.put('/update/:id', function (req, res, next) {
 //     const post_id = req.params.id;
 //     const { title, body, tags } = req.body;
 
@@ -127,20 +127,17 @@ router.delete('/:id', (req, res) => {
 // });
 
 //수정하기 33
-router.post('/update/:id', function (req, res) {
+router.post('/update/:id', (req, res) => {
     Post.findOneAndUpdate(
-        { _id: req.params.id, comments: { $elemMatch: { _id: req.params.id } } },
-        { $set: { 'comments.$.memo': modifiedtext } },
-        function (err, results) {
-            if (err) throw err;
-            console.log(results);
-            if (results) {
-                Post.find({ _id: req.params.id }, function (err, reply) {
-                    if (err) throw err;
-                    console.log('reply after modifying', reply[0].comments);
-                    res.send({ reply: reply[0].comments });
-                });
+        { _id: req.params.id },
+        { $set: { title: req.body.title, body: req.body.body, tags: req.body.tags } },
+
+        (err, post) => {
+            if (err) {
+                return res.json({ success: false, err });
             }
+            console.log('수정ㅇㅇㅇㅇ포스트', post);
+            res.json({ success: true, post });
         }
     );
 });

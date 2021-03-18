@@ -26,7 +26,8 @@ const SubInfo = ({ username, publishedDate, hasMarginTop }) => {
             <span>
                 <Link to={`/@${username}`}>{username}</Link>
             </span>
-            <span>{new Date(publishedDate).toLocaleDateString()}</span>
+            <span>{publishedDate && new Date(publishedDate).toLocaleDateString()}</span>
+            {/* publishedDate가 null이면 && 에 의해  newDate안뜸  */}
         </SubInfoBlock>
     );
 };
